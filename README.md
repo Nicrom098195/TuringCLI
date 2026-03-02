@@ -32,7 +32,11 @@ Output tape: `1010`
 ### Usage example
 
 To run with raw code: `python3 main.py -c "(0,0,0,1,>);(0,1,0,0,>);(0,-,e,-,-)" -s 0 -n 1010`
+
 To run with code file: `python3 main.py input.tur 1010` or `python3 main.py -f input.tur -n 1010`
+
 To run with just the compiled code output: `python3 main.py input.tur 1010 -o`
+
 To write the compiled code into a file: `python3 main.py input.tur 1010 -o compiled.json` (It has to be a json file for the code to work)
+
 To run a pre-compiled code: `python3 main.py -ci compiled.json -n 1010`
