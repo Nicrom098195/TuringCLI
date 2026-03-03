@@ -1,14 +1,19 @@
 # Python turing simulator
 
+A compact and lightweight way to run Turing code locally
+Syntax should be fully compatible with [turingsimulator.net](https://www.turingsimulator.net)
+
+---
+
 To run `python3 main.py inputFileName.tur inputTape`
 
 Input file syntax `(initial state, reading value, final state, write value, movement)`
 Acceptable movements: `<`, `-` and `>`
 Comments available after the `#` character
 
-Syntax should be fully compatible with [turingsimulator.net](https://www.turingsimulator.net)
-
 Value ranges: `0..9` => `0123456789`, `0..9qse` => `0123456789qse`
+
+---
 
 ### Valid options
 1. `-f` input file name
@@ -17,6 +22,8 @@ Value ranges: `0..9` => `0123456789`, `0..9qse` => `0123456789qse`
 4. `-s` delay between actions (ms)
 5. `-o` prints the compiled json code (if a file is specified it writes the compiled code inside of it)
 6. `-ci` Runs the already compiled code from a specified json file
+
+---
 
 ### Example code
 
@@ -28,6 +35,8 @@ Value ranges: `0..9` => `0123456789`, `0..9qse` => `0123456789qse`
 
 Input tape: `0101`
 Output tape: `1010`
+
+---
 
 ### Usage example
 
