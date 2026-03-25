@@ -80,22 +80,28 @@ def getRange(s): # Decodes string into a string range (0..9 => 0123456789, 0..9a
 def pnastro(): # Prints the formatted tape 
 	print("Nastro: ", end="")
 	expected=2*shownrange+1
+	if index<shownrange:
+		for i in range(shownrange-index):
+			print(fillBG+" ", end="")
+			expected-=1
+
 	for l in range(len(nastro)):
 		if(l == index):
 			print(mainBG+nastro[l].replace("-", " "), end="")
 			expected-=1
 		else:
-			if(abs(index-l)<shownrange):
+			if(abs(index-l)<=shownrange):
 				print(normalBG+nastro[l].replace("-", " "), end="")
 				expected-=1
 	for i in range(expected):
-		print(normalBG+" ", end="")
+		print(fillBG+" ", end="")
 	print(resetBG,"Stato: ",state, end="         \r")
 
 # Sets the colors to display in the formatted tape
 # White: 7, blue: 44, red: 41, green: 42, yellow: 43, magenta: 45, cyan: 46
 mainBG="\033[41m"
 normalBG="\033[44m"
+fillBG="\033[44m"
 resetBG="\033[0m"
 
 pattern = r"^\(([^,()\[\]{}]+,){4}[<>/ -]\)$" # Pattern to recognize in the code
