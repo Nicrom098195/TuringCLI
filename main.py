@@ -101,7 +101,7 @@ def pnastro(): # Prints the formatted tape
 # White: 7, blue: 44, red: 41, green: 42, yellow: 43, magenta: 45, cyan: 46
 mainBG="\033[41m"
 normalBG="\033[44m"
-fillBG="\033[42m"
+fillBG="\033[44m"
 resetBG="\033[0m"
 
 pattern = r"^\(([^,()\[\]{}]+,){4}[<>/ -]\)$" # Pattern to recognize in the code
