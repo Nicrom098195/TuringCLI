@@ -82,7 +82,7 @@
 
 (scrivi9,0..9abcdefx.,scrivi9,0..9abcdefx.,>)
 (scrivi9,-,scrivi91,1,>)
-(scrivi901,-,scrivi92,0,>)
+(scrivi91,-,scrivi92,0,>)
 (scrivi92,-,scrivi93,0,>)
 (scrivi93,-,inizio,1,<)
 

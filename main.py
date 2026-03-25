@@ -22,6 +22,8 @@ state=0
 instructions={}
 acts=0
 
+shownrange=40
+
 if "-f" in sys.argv: # Gets input file name
 	inputFile=sys.argv[sys.argv.index("-f")+1]
 	if sys.argv.index("-f") < 3:
@@ -77,12 +79,18 @@ def getRange(s): # Decodes string into a string range (0..9 => 0123456789, 0..9a
 
 def pnastro(): # Prints the formatted tape 
 	print("Nastro: ", end="")
+	expected=2*shownrange+1
 	for l in range(len(nastro)):
 		if(l == index):
 			print(mainBG+nastro[l].replace("-", " "), end="")
+			expected-=1
 		else:
-			print(normalBG+nastro[l].replace("-", " "), end="")
-	print(resetBG,"Stato: ",state, end="      \r")
+			if(abs(index-l)<shownrange):
+				print(normalBG+nastro[l].replace("-", " "), end="")
+				expected-=1
+	for i in range(expected):
+		print(normalBG+" ", end="")
+	print(resetBG,"Stato: ",state, end="         \r")
 
 # Sets the colors to display in the formatted tape
 # White: 7, blue: 44, red: 41, green: 42, yellow: 43, magenta: 45, cyan: 46
