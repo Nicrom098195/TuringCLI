@@ -95,7 +95,7 @@ def pnastro(): # Prints the formatted tape
 				expected-=1
 	for i in range(expected):
 		print(fillBG+" ", end="")
-	print(resetBG,"Stato: ",state, end="         \r")
+	print(resetBG,"Stato: ",state,end="\r")
 
 # Sets the colors to display in the formatted tape
 # White: 7, blue: 44, red: 41, green: 42, yellow: 43, magenta: 45, cyan: 46
