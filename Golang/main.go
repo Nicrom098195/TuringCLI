@@ -59,12 +59,14 @@ func ptape(tape []string, index int, state string, move int){
 	for i := 0; i<len(tape); i++{
 		if i == index{
 			fmt.Print(mainBG)
+			fmt.Print(strings.Replace(tape[i], "-", " ", -1))
 		}else{
 			if abs(i-index) < fov{
 				fmt.Print(normalBG)
+				fmt.Print(strings.Replace(tape[i], "-", " ", -1))
 			}
 		}
-		fmt.Print(strings.Replace(tape[i], "-", " ", -1))
+		
 	}
 
 	if (len(tape)-index) < fov{
