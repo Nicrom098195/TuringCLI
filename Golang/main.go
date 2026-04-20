@@ -115,7 +115,6 @@ func main(){
 
 
 	// Checks for other arguments given
-
 		for i := 1; i<(len(os.Args)-1); i++{
 			ag := os.Args[i]
 
