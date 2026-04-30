@@ -48,7 +48,7 @@ func abs(n int) int{
 }
 
 func ptape(tape []string, index int, state string, move int){
-	fov := 30
+	fov := 50
 
 	if index < fov{
 		for i := 0; i<(fov-index); i++{
@@ -92,6 +92,14 @@ func main(){
 		return
 	}
 
+	ptp := true;
+
+	for i := 1; i<(len(os.Args)); i++{
+		if(os.Args[i] == "-np"){
+			ptp=false;
+		}
+	}
+
 	fname:=string(os.Args[1])
 
 	// Initializes the tape
@@ -110,7 +118,7 @@ func main(){
 		ms, err = strconv.Atoi(os.Args[3])
 		if err != nil {
     		log.Fatal(err)
-		}
+		}10000M.10G.5G.10G.10G.5G.10000D.1000P
 	}*/
 
 
@@ -198,6 +206,7 @@ func main(){
 	// Main loop
 
 	runnable := true
+	actions := 0
 
 	for runnable{
 		val := string(strings.Replace(tape[index], " ", "-", -1))
@@ -221,11 +230,17 @@ func main(){
 		}else{
 			runnable = false
 		}
-		ptape(tape, index, state, moves[string(state)][val])
-		time.Sleep(time.Duration(ms) * time.Millisecond)
+		if(ptp){
+			ptape(tape, index, state, moves[string(state)][val])
+			time.Sleep(time.Duration(ms) * time.Millisecond)
+		}
+		actions++;
 	}
 
 
-
+	ptape(tape, index, state, moves[string(state)][tape[index]])
 	fmt.Println();
+	fmt.Print("Completed with ");
+	fmt.Print(actions);
+	fmt.Println(" actions");
 }
