@@ -73,7 +73,13 @@
 (subtpad,m,subtpad1,m,<)
 (subtpad1,1..9,subnpad,0..8,<)
 (subtpad1,0,subtpad1,9,<)
-(subtpad1,.,ended,.,<)
+(subtpad1,.,checkdep,.,<)
+
+(checkdep,0..9.mgda,checkdep,0..9.mgda,>)
+(checkdep,d,checkdep1,d,<)
+(checkdep1,0,checkdep1,0,<)
+(checkdep1,1..9,ended,1..9,<)
+(checkdep1,.,abort,.,<)
 
 (subnpad,0..9,subnpad,0..9,<)
 (subnpad,.,subnpad1,.,<)
@@ -165,7 +171,7 @@
 (removeday2,0,removeday2,9,<)
 (removeday2,.,windowclosed,.,>)
 (windowclosed,9g,windowclosed,a,>)
-(windowclosed,.,addday,.,>)
+(windowclosed,.,removeday,.,>)
 
 (addday,0..9.gdt,addday,0..9.gdt,>)
 (addday,j,addday1,j,<)
@@ -175,7 +181,7 @@
 (addday2,t,addday3,t,<)
 (addday3,0..9,subpad,1..99,<)
 
-(ended,0..9.,ended,0..9.,<)
+(ended,0..9.mgdtab,ended,0..9.mgdtab,<)
 (ended,-,ended1,w,<)
 (ended1,-,countwindows,1,>)
 
