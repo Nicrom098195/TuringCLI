@@ -17,7 +17,7 @@
 (subtractd,d,subtractd1,d,<)
 (subtractd1,1..9,subtractend,0..8,>)
 (subtractd1,0,subtractd1,9,<)
-(subtractd1,.,removeunitss,.,<)
+(subtractd1,.,abortst,.,<)
 (subtractend,0..9d,subtractend,0..9d,>)
 (subtractend,-,subtractend1,-,<)
 (subtractend1,1..9,subtractd,0..8,<)
