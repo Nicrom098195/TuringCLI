@@ -59,11 +59,11 @@ func ptape(tape []string, index int, state string, move int){
 	for i := 0; i<len(tape); i++{
 		if i == index{
 			fmt.Print(mainBG)
-			fmt.Print(strings.Replace(strings.ToUpper(tape[i]), "-", " ", -1))
+			fmt.Print(strings.ToUpper(tape[i]))
 		}else{
 			if abs(i-index) < fov{
 				fmt.Print(normalBG)
-				fmt.Print(strings.Replace(strings.ToUpper(tape[i]), "-", " ", -1))
+				fmt.Print(strings.ToUpper(tape[i]))
 			}
 		}
 		
@@ -145,7 +145,7 @@ func main(){
 			}
 		}
 
-
+	itape=strings.Replace(strings.Replace(itape, "-", " ", -1), "\\ ", "-", -1)
 	for i:=0; i<len(itape); i++{
 		tape=append(tape, strings.ToLower(string(itape[i])))
 	}
@@ -169,6 +169,10 @@ func main(){
 		raw := string(strings.Split(strings.ToLower(scanner.Text()), "#")[0])
 		if(pattern.MatchString(raw)){
 	    	line:=strings.Split(strings.Replace(strings.Replace(raw, "(", "", -1), ")", "", -1), ",")
+	    	line[1]=strings.Replace(line[1], "-", " ", -1);
+	    	line[1]=strings.Replace(line[1], "\\ ", "-", -1);
+	    	line[3]=strings.Replace(line[3], "-", " ", -1);
+	    	line[3]=strings.Replace(line[3], "\\ ", "-", -1);
     		line[1]=expandRanges(line[1])
     		line[3]=expandRanges(line[3])
 
@@ -209,7 +213,7 @@ func main(){
 	actions := 0
 
 	for runnable{
-		val := string(strings.Replace(tape[index], " ", "-", -1))
+		val := string(tape[index])
 		if _, ok := states[string(state)][val]; ok{ // Checks if the state the machine is in is possible
 
 			// Gets updates
@@ -221,7 +225,7 @@ func main(){
 			index=newIndex
 			if index < 0{
 				index++
-				tape=append([]string{"-"}, tape...)
+				tape=append([]string{" "}, tape...)
 			}
 			if index >= len(tape){
 				tape=append(tape, " ")
