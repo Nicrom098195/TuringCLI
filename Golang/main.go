@@ -145,7 +145,7 @@ func main(){
 			}
 		}
 
-	itape=strings.Replace(strings.Replace(itape, "-", " ", -1), "\\ ", "-", -1)
+	itape=strings.Replace(strings.Replace(strings.Replace(itape, "-", " ", -1),"\\\\", "\\", -1), "\\ ", "-", -1)
 	for i:=0; i<len(itape); i++{
 		tape=append(tape, strings.ToLower(string(itape[i])))
 	}
